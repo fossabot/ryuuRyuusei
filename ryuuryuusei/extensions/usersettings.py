@@ -50,7 +50,7 @@ class UserSettings(ipy.Extension):
     )
     async def usersettings_language_set(self, ctx: ipy.InteractionContext, lang: str):
         try:
-            await set_default_language(code=lang, ctx=ctx, isGuild=False)
+            await set_default_language(code=lang, ctx=ctx, is_guild=False)
             await ctx.send(f"{EMOJI_SUCCESS} Language set to {lang}", ephemeral=True)
         except Exception as e:
             await ctx.send(f"{EMOJI_FORBIDDEN} {e}")

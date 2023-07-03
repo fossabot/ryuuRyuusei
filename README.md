@@ -17,8 +17,7 @@
 <a title="Codacy" href="https://app.codacy.com/gh/nattadasu/ryuuRyuusei/dashboard"><img alt="Codacy grade" src="https://img.shields.io/codacy/grade/8109d97c7cca49ef9dbc96a82796ad66?logo=codacy&style=for-the-badge"> <img alt="Codacy coverage" src="https://img.shields.io/codacy/coverage/8109d97c7cca49ef9dbc96a82796ad66?logo=codacy&style=for-the-badge"></a>
 <img alt="Snyk Vulnerabilities for GitHub Repo" src="https://img.shields.io/snyk/vulnerabilities/github/nattadasu/ryuuRyuusei?logo=snyk&style=for-the-badge"><br>
 <a href="https://app.deepsource.com/gh/nattadasu/ryuuRyuusei/" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://app.deepsource.com/gh/nattadasu/ryuuRyuusei.svg/?label=active+issues&show_trend=true&token=e6p1rkAiFj4re6lheVEBPfd5"/></a>
-<a href="https://app.deepsource.com/gh/nattadasu/ryuuRyuusei/" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://app.deepsource.com/gh/nattadasu/ryuuRyuusei.svg/?label=resolved+issues&show_trend=true&token=e6p1rkAiFj4re6lheVEBPfd5"/></a>
-<a title="Crowdin" target="_blank" href="https://crowdin.com/project/ryuuRyuusei"><img src="https://badges.crowdin.net/ryuuRyuusei/localized.svg"></a></p>
+<a href="https://app.deepsource.com/gh/nattadasu/ryuuRyuusei/" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://app.deepsource.com/gh/nattadasu/ryuuRyuusei.svg/?label=resolved+issues&show_trend=true&token=e6p1rkAiFj4re6lheVEBPfd5"/></a></p>
 
 ---
 

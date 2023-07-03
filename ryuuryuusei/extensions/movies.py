@@ -7,6 +7,8 @@ Available commands:
 - /movies random - Get a random movie
 """
 
+from typing import Any
+
 import interactions as ipy
 
 from classes.excepts import ProviderHttpError
@@ -58,8 +60,8 @@ class MoviesCog(ipy.Extension):
         language_dict = fetch_language_data(user_lang, use_raw=True)
         send = await ctx.send(
             embed=ipy.Embed(
-                title=language_dict["commons"]["search"]["init_title"],
-                description=language_dict["commons"]["search"]["init"].format(
+                title=language_dict["commons"]["search"]["init_title"],  # type: ignore
+                description=language_dict["commons"]["search"]["init"].format(  # type: ignore
                     QUERY=query,
                     PLATFORM="SIMKL",
                 ),
@@ -84,19 +86,19 @@ class MoviesCog(ipy.Extension):
                 md_title = sanitize_markdown(title)
                 fields.append(
                     ipy.EmbedField(
-                        name=f"{md_title}",
+                        name=md_title,
                         value=f"`{media_id}`\n{first_aired}",
                         inline=False,
-                    )
-                )
+                    ))
                 select_options.append(
                     ipy.StringSelectOption(
-                        label=f"{md_title}",
+                        label=title[:77] +
+                        "..." if len(title) > 77 else title,
                         value=f"{media_id}",
                         description=f"{first_aired}",
                     )
                 )
-            title = language_dict["commons"]["search"]["result_title"].format(
+            title = language_dict["commons"]["search"]["result_title"].format(  # type: ignore
                 QUERY=query,
             )
             result_embed = generate_search_embed(
@@ -129,8 +131,7 @@ class MoviesCog(ipy.Extension):
             )
         # pylint: disable=broad-except
         except Exception as _:
-            language_dict: dict[str,
-                                str] = language_dict["strings"]["movies"]["search"]["exception"]
+            language_dict: dict[str, Any] = language_dict["strings"]["movies"]["search"]["exception"]
             emoji = EMOJI_UNEXPECTED_ERROR.split(":")[2].split(">")[0]
             embed = ipy.Embed(
                 title=language_dict["title"],
@@ -161,10 +162,12 @@ class MoviesCog(ipy.Extension):
         await simkl_submit(ctx, entry_id, "movies")
         # grab "message_delete" button
         keep_components: list[ipy.ActionRow] = []
+        if ctx.message is None or ctx.message.components is None:
+            return
         for action_row in ctx.message.components:
-            for comp in action_row.components:
-                if comp.custom_id == "message_delete":
-                    comp.label = "Delete message"
+            for comp in action_row.components:  # type: ignore
+                if comp.custom_id == "message_delete":  # type: ignore
+                    comp.label = "Delete message"  # type: ignore
                     keep_components.append(action_row)
         await ctx.message.edit(components=keep_components)
 

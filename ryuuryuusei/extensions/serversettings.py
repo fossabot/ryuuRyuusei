@@ -56,7 +56,7 @@ class ServerSettings(ipy.Extension):
             lang (str): Language code, autocomplete available
         """
         try:
-            await set_default_language(code=lang, ctx=ctx, isGuild=True)
+            await set_default_language(code=lang, ctx=ctx, is_guild=True)
             await ctx.send(f"{EMOJI_SUCCESS} Server Language set to {lang}")
         # pylint: disable-next=broad-except
         except Exception as error:
